@@ -1,5 +1,2 @@
-set_global_assignment -name VERILOG_FILE rtl/lfsr.v
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/cos.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/kc87.v
 set_global_assignment -name SDC_FILE kc87.sdc
 set_global_assignment -name SYSTEMVERILOG_FILE kc87.sv

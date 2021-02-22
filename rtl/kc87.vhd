@@ -54,7 +54,17 @@ entity kc87 is
 		
 		LED_USER			: out std_logic;
 		LED_POWER		: out std_logic_vector(1 downto 0);
-		LED_DISK			: out std_logic_vector(1 downto 0)
+		LED_DISK			: out std_logic_vector(1 downto 0);
+		
+		USER_OUT			: out std_logic_vector(6 downto 0);
+		
+		hps_status		: in  std_logic_vector(31 downto 0);
+		ioctl_download	: in  std_logic;
+		ioctl_index		: in  std_logic_vector(7 downto 0);
+		ioctl_wr			: in  std_logic;
+		ioctl_addr		: in  std_logic_vector(24 downto 0);
+		ioctl_data		: in  std_logic_vector(7 downto 0);
+		ioctl_wait		: out  std_logic
     );
 end kc87;
 
@@ -166,6 +176,9 @@ architecture struct of kc87 is
 	-- TEMP fuer UART, maybe via MiSTer user-IO??
 	signal UART_TXD		: std_logic;
 	signal UART_RXD		: std_logic;
+	
+	-- tape recorder output
+	--signal tape_out		: std_logic;
 
 begin
 	-- MiSTer video?
@@ -173,7 +186,7 @@ begin
 	
 	-- LEDs
 	LED_POWER <= '1' & '1';
-	LED_DISK  <= '1' & '0';
+	--LED_DISK  <= '1' & '0';
 	
 	-- some static signals
 	wait_n	<= '1';
@@ -311,7 +324,7 @@ begin
 			bRdy  => pio1_bRdy,
 			bStb  => '1'
 		);
-	pio1_aStb <= '1';
+	--pio1_aStb <= '1';
 	pio1_aIn <= (others => '1');
 	pio1_bIn <= (others => '1');
 
@@ -468,7 +481,7 @@ begin
 			old_stb <= ps2_key(10);
 			if old_stb /= ps2_key(10) then
 				LED_USER  <= ps2_key(9);
-				ps2_state <= ps2_key(9);
+				ps2_state <= not ps2_key(9);
 				ps2_code  <= ps2_key(7 downto 0);
 				ps2_rcvd  <= '1';
 			else
@@ -476,6 +489,27 @@ begin
 			end if;
 		end if;
 	end process;
+	
+	-- tape
+	tape : entity work.tape
+		port map (
+			clk			=> clk,
+			reset_n		=> resetInt,
+			
+			LED_DISK		=> LED_DISK,
+			
+			tape_out		=> pio1_aStb,
+			
+			USER_OUT		=> USER_OUT,
+			
+			hps_status  => hps_status,
+			ioctl_download => ioctl_download,
+			ioctl_index => ioctl_index,
+			ioctl_wr    => ioctl_wr,
+			ioctl_addr  => ioctl_addr,
+			ioctl_data  => ioctl_data,
+			ioctl_wait  => ioctl_wait
+		);
 	
 	-- uart
 	uart : entity work.uart

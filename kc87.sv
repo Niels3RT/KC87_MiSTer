@@ -169,7 +169,7 @@ module emu
 ///////// Default values for ports not used in this core /////////
 
 assign ADC_BUS  = 'Z;
-assign USER_OUT = '1;
+//assign USER_OUT = '1;
 assign {UART_RTS, UART_TXD, UART_DTR} = 0;
 assign {SD_SCK, SD_MOSI, SD_CS} = 'Z;
 assign {SDRAM_DQ, SDRAM_A, SDRAM_BA, SDRAM_CLK, SDRAM_CKE, SDRAM_DQML, SDRAM_DQMH, SDRAM_nWE, SDRAM_nCAS, SDRAM_nRAS, SDRAM_nCS} = 'Z;
@@ -191,16 +191,16 @@ assign BUTTONS = 0;
 //////////////////////////////////////////////////////////////////
 
 wire [1:0] ar = status[9:8];
-
-assign VIDEO_ARX = 4;
-assign VIDEO_ARY = 3;
+assign VIDEO_ARX = (!ar) ? 12'd4 : (ar - 1'd1);
+assign VIDEO_ARY = (!ar) ? 12'd3 : 12'd0;
 
 `include "build_id.v" 
 localparam CONF_STR = {
 	"KC87;;",
 	"-;",
-	"O89,Aspect ratio,Original,Full Screen,[ARC1],[ARC2];",
-	"O2,TV Mode,PAL,NTSC;",
+	"O12,Aspect ratio,Original,Full Screen,[ARC1],[ARC2];",
+	"-;",
+	"F,TAP,Load Tape;",
 	"-;",
 	"T0,Reset;",
 	"R0,Reset and close OSD;",
@@ -211,6 +211,13 @@ wire forced_scandoubler;
 wire  [1:0] buttons;
 wire [31:0] status;
 wire [10:0] ps2_key;
+
+wire        ioctl_wr;
+wire [24:0] ioctl_addr;
+wire  [7:0] ioctl_data;
+wire  [7:0] ioctl_index;
+wire        ioctl_download;
+reg         ioctl_req_wr;
 
 hps_io #(.STRLEN($size(CONF_STR)>>3)) hps_io
 (
@@ -226,7 +233,14 @@ hps_io #(.STRLEN($size(CONF_STR)>>3)) hps_io
 	.status(status),
 	.status_menumask({status[5]}),
 	
-	.ps2_key(ps2_key)
+	.ps2_key(ps2_key),
+	
+	.ioctl_download(ioctl_download),
+	.ioctl_index(ioctl_index),
+	.ioctl_wr(ioctl_wr),
+	.ioctl_addr(ioctl_addr),
+	.ioctl_dout(ioctl_data),
+	.ioctl_wait(ioctl_req_wr)
 );
 
 ///////////////////////   CLOCKS   ///////////////////////////////
@@ -277,7 +291,17 @@ kc87 kc87
 	
 	.LED_USER(LED_USER),
 	.LED_POWER(LED_POWER),
-	.LED_DISK(LED_DISK)
+	.LED_DISK(LED_DISK),
+	
+	.USER_OUT(USER_OUT),
+	
+	.hps_status(status),
+	.ioctl_download(ioctl_download),
+	.ioctl_index(ioctl_index),
+	.ioctl_wr(ioctl_wr),
+	.ioctl_addr(ioctl_addr),
+	.ioctl_data(ioctl_data),
+	.ioctl_wait(ioctl_req_wr)
 );
 
 assign CLK_VIDEO = clk_vga;

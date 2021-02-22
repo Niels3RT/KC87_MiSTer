@@ -1,80 +1,97 @@
-Quartus Prime Archive log --	D:/Mr/KC87/Template_MiSTer-master/mycore_tmp_archive.qarlog
+Quartus Prime Archive log --	D:/Mr/KC87/KC87_MiSTer/kc87_tmp_archive.qarlog
 
-Archive:	D:/Mr/KC87/Template_MiSTer-master/mycore_tmp_archive.qar
-Date:		Tue Feb 09 15:34:18 2021
+Archive:	D:/Mr/KC87/KC87_MiSTer/kc87_tmp_archive.qar
+Date:		Fri Feb 12 14:31:00 2021
 Quartus Prime		17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 	=========== Files Selected: ===========
-D:/Mr/KC87/Template_MiSTer-master/__mycore.auto.qarlog
-D:/Mr/KC87/Template_MiSTer-master/files.qip
-D:/Mr/KC87/Template_MiSTer-master/mycore.qpf
-D:/Mr/KC87/Template_MiSTer-master/mycore.qsf
-D:/Mr/KC87/Template_MiSTer-master/mycore.sdc
-D:/Mr/KC87/Template_MiSTer-master/mycore.srf
-D:/Mr/KC87/Template_MiSTer-master/mycore.sv
-D:/Mr/KC87/Template_MiSTer-master/mycore_Q13.qws
-D:/Mr/KC87/Template_MiSTer-master/mycore_Q13.srf
-D:/Mr/KC87/Template_MiSTer-master/mycore_Q13_assignment_defaults.qdf
-D:/Mr/KC87/Template_MiSTer-master/mycore_tmp_archive.qarlog
-D:/Mr/KC87/Template_MiSTer-master/output_files/mycore.done
-D:/Mr/KC87/Template_MiSTer-master/output_files/mycore.flow.rpt
-D:/Mr/KC87/Template_MiSTer-master/output_files/mycore.map.rpt
-D:/Mr/KC87/Template_MiSTer-master/output_files/mycore.map.smsg
-D:/Mr/KC87/Template_MiSTer-master/output_files/mycore.map.summary
-D:/Mr/KC87/Template_MiSTer-master/rtl/cos.sv
-D:/Mr/KC87/Template_MiSTer-master/rtl/lfsr.v
-D:/Mr/KC87/Template_MiSTer-master/rtl/mycore.v
-D:/Mr/KC87/Template_MiSTer-master/rtl/pll.qip
-D:/Mr/KC87/Template_MiSTer-master/rtl/pll.v
-D:/Mr/KC87/Template_MiSTer-master/rtl/pll/pll_0002.qip
-D:/Mr/KC87/Template_MiSTer-master/rtl/pll/pll_0002.v
-D:/Mr/KC87/Template_MiSTer-master/sys/alsa.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/arcade_video.v
-D:/Mr/KC87/Template_MiSTer-master/sys/ascal.vhd
-D:/Mr/KC87/Template_MiSTer-master/sys/audio_out.v
-D:/Mr/KC87/Template_MiSTer-master/sys/build_id.tcl
-D:/Mr/KC87/Template_MiSTer-master/sys/ddr_svc.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/f2sdram_safe_terminator.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/gamma_corr.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/hdmi_config.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/hps_io.v
-D:/Mr/KC87/Template_MiSTer-master/sys/hq2x.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/i2c.v
-D:/Mr/KC87/Template_MiSTer-master/sys/i2s.v
-D:/Mr/KC87/Template_MiSTer-master/sys/iir_filter.v
-D:/Mr/KC87/Template_MiSTer-master/sys/ltc2308.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/mcp23009.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/mt32pi.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/osd.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_audio.qip
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_audio.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_audio/pll_audio_0002.qip
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_audio/pll_audio_0002.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_cfg.qip
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_cfg.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_cfg/altera_pll_reconfig_core.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_cfg/altera_pll_reconfig_top.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_hdmi.qip
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_hdmi.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_hdmi/pll_hdmi_0002.qip
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_hdmi/pll_hdmi_0002.v
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_hdmi_adj.vhd
-D:/Mr/KC87/Template_MiSTer-master/sys/pll_q17.qip
-D:/Mr/KC87/Template_MiSTer-master/sys/scandoubler.v
-D:/Mr/KC87/Template_MiSTer-master/sys/scanlines.v
-D:/Mr/KC87/Template_MiSTer-master/sys/sd_card.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/sigma_delta_dac.v
-D:/Mr/KC87/Template_MiSTer-master/sys/spdif.v
-D:/Mr/KC87/Template_MiSTer-master/sys/sys.qip
-D:/Mr/KC87/Template_MiSTer-master/sys/sys.tcl
-D:/Mr/KC87/Template_MiSTer-master/sys/sys_analog.tcl
-D:/Mr/KC87/Template_MiSTer-master/sys/sys_dual_sdram.tcl
-D:/Mr/KC87/Template_MiSTer-master/sys/sys_top.sdc
-D:/Mr/KC87/Template_MiSTer-master/sys/sys_top.v
-D:/Mr/KC87/Template_MiSTer-master/sys/sysmem.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/vga_out.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/video_cleaner.sv
-D:/Mr/KC87/Template_MiSTer-master/sys/video_mixer.sv
-c:/intelfpga_lite/17.0/quartus/bin64/assignment_defaults.qdf
-	======= Total: 71 files to archive =======
+D:/Mr/KC87/KC87_MiSTer/assignment_defaults.qdf
+D:/Mr/KC87/KC87_MiSTer/build_id.v
+D:/Mr/KC87/KC87_MiSTer/files.qip
+D:/Mr/KC87/KC87_MiSTer/jtag.cdf
+D:/Mr/KC87/KC87_MiSTer/kc87.qpf
+D:/Mr/KC87/KC87_MiSTer/kc87.qsf
+D:/Mr/KC87/KC87_MiSTer/kc87.sdc
+D:/Mr/KC87/KC87_MiSTer/kc87.sv
+D:/Mr/KC87/KC87_MiSTer/rtl/dualsram.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/kc87.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/ctc.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/ctc_channel.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/pio.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/pio_port.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/pport.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/ps2kc.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/simpleIntcontroller.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/periph/uart.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/pll.cmp
+D:/Mr/KC87/KC87_MiSTer/rtl/pll.qip
+D:/Mr/KC87/KC87_MiSTer/rtl/pll.v
+D:/Mr/KC87/KC87_MiSTer/rtl/pll/pll_0002.qip
+D:/Mr/KC87/KC87_MiSTer/rtl/pll/pll_0002.v
+D:/Mr/KC87/KC87_MiSTer/rtl/roms/bootloader.vhdl
+D:/Mr/KC87/KC87_MiSTer/rtl/roms/chargen.vhdl
+D:/Mr/KC87/KC87_MiSTer/rtl/sram.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/t80/T80.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/t80/T80_ALU.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/t80/T80_MCode.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/t80/T80_Pack.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/t80/T80_Reg.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/t80/T80se.vhd
+D:/Mr/KC87/KC87_MiSTer/rtl/vga/video.vhd
+D:/Mr/KC87/KC87_MiSTer/sys/alsa.sv
+D:/Mr/KC87/KC87_MiSTer/sys/arcade_video.v
+D:/Mr/KC87/KC87_MiSTer/sys/ascal.vhd
+D:/Mr/KC87/KC87_MiSTer/sys/audio_out.v
+D:/Mr/KC87/KC87_MiSTer/sys/build_id.tcl
+D:/Mr/KC87/KC87_MiSTer/sys/ddr_svc.sv
+D:/Mr/KC87/KC87_MiSTer/sys/f2sdram_safe_terminator.sv
+D:/Mr/KC87/KC87_MiSTer/sys/gamma_corr.sv
+D:/Mr/KC87/KC87_MiSTer/sys/hdmi_config.sv
+D:/Mr/KC87/KC87_MiSTer/sys/hps_io.v
+D:/Mr/KC87/KC87_MiSTer/sys/hq2x.sv
+D:/Mr/KC87/KC87_MiSTer/sys/i2c.v
+D:/Mr/KC87/KC87_MiSTer/sys/i2s.v
+D:/Mr/KC87/KC87_MiSTer/sys/iir_filter.v
+D:/Mr/KC87/KC87_MiSTer/sys/ltc2308.sv
+D:/Mr/KC87/KC87_MiSTer/sys/mcp23009.sv
+D:/Mr/KC87/KC87_MiSTer/sys/mt32pi.sv
+D:/Mr/KC87/KC87_MiSTer/sys/osd.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_audio.qip
+D:/Mr/KC87/KC87_MiSTer/sys/pll_audio.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_audio/pll_audio_0002.qip
+D:/Mr/KC87/KC87_MiSTer/sys/pll_audio/pll_audio_0002.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_cfg.qip
+D:/Mr/KC87/KC87_MiSTer/sys/pll_cfg.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_cfg/altera_pll_reconfig_core.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_cfg/altera_pll_reconfig_top.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_hdmi.qip
+D:/Mr/KC87/KC87_MiSTer/sys/pll_hdmi.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_hdmi/pll_hdmi_0002.qip
+D:/Mr/KC87/KC87_MiSTer/sys/pll_hdmi/pll_hdmi_0002.v
+D:/Mr/KC87/KC87_MiSTer/sys/pll_hdmi_adj.vhd
+D:/Mr/KC87/KC87_MiSTer/sys/pll_q17.qip
+D:/Mr/KC87/KC87_MiSTer/sys/scandoubler.v
+D:/Mr/KC87/KC87_MiSTer/sys/scanlines.v
+D:/Mr/KC87/KC87_MiSTer/sys/sd_card.sv
+D:/Mr/KC87/KC87_MiSTer/sys/sigma_delta_dac.v
+D:/Mr/KC87/KC87_MiSTer/sys/spdif.v
+D:/Mr/KC87/KC87_MiSTer/sys/sys.qip
+D:/Mr/KC87/KC87_MiSTer/sys/sys.tcl
+D:/Mr/KC87/KC87_MiSTer/sys/sys_analog.tcl
+D:/Mr/KC87/KC87_MiSTer/sys/sys_dual_sdram.tcl
+D:/Mr/KC87/KC87_MiSTer/sys/sys_top.sdc
+D:/Mr/KC87/KC87_MiSTer/sys/sys_top.v
+D:/Mr/KC87/KC87_MiSTer/sys/sysmem.sv
+D:/Mr/KC87/KC87_MiSTer/sys/vga_out.sv
+D:/Mr/KC87/KC87_MiSTer/sys/video_cleaner.sv
+D:/Mr/KC87/KC87_MiSTer/sys/video_mixer.sv
+	======= Total: 80 files to archive =======
 
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Fri Feb 12 14:31:03 2021
+Source archive file:	D:/Mr/KC87/KC87_MiSTer/kc87_tmp_archive.qar
+Archive was extracted into	D:/Mr/KC87/KC854_MiSTer/
+		 - successfully.
