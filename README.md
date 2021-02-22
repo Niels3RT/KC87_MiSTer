@@ -32,12 +32,12 @@ SSS files need to be converted to *.TAP files to be usable. [The JKCEMU KC emula
 There are a few converted games in the tap folder in the repository.
 
 How to load and start a game:
-1.type BASIC at the OS prompt and press enter when asked for MEMORY-END
-1.type CLOAD"*name*" and press enter, substitute *name* for the TAP file you want to load
-1.go to the osd and load the TAP file
-1.now the name of the game and a slowly moving cursor should appear
-1.grab some coffee and/or watch the disk led blinking
-1.type run to start the game when the prompt reappears
+1. type BASIC at the OS prompt and press enter when asked for MEMORY-END
+1. type CLOAD"*name*" and press enter, substitute *name* for the TAP file you want to load
+1. go to the osd and load the TAP file
+1. now the name of the game and a slowly moving cursor should appear
+1. grab some coffee and/or watch the disk led blinking
+1. type run to start the game when the prompt reappears
 
 To get a feeling for the transfer speed involved, see [this video](https://youtu.be/Oi6K0Y1p6PQ)
 
