@@ -55,7 +55,6 @@ entity tape is
 end tape;
 
 	architecture rtl of tape is
-		--signal divider			: unsigned(31 downto 0) := (others => '0');
 		signal divide_bit		: unsigned(16 downto 0) := (others => '0');
 		
 		signal tx_cnt_block	: unsigned(11 downto 0) := (others => '1');
@@ -64,7 +63,6 @@ end tape;
 		signal tx_cnt_bit		: unsigned(3 downto 0) := (others => '0');
 		signal tx_cnt_mid		: unsigned(3 downto 0) := (others => '0');
 		signal tx_cnt_pulse	: unsigned(7 downto 0) := (others => '0');
-		signal tx_cnt_finish	: unsigned(3 downto 0) := (others => '0');
 		
 		signal cnt_txadr		: unsigned(7 downto 0) := (others => '0');
 		
