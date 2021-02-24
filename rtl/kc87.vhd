@@ -40,6 +40,7 @@ entity kc87 is
 		ps2_key			: in std_logic_vector(10 downto 0);
 		
 		scandouble		: in  std_logic;
+		turbo				: in  std_logic;
 
 		ce_pix			: out  std_logic;
 
@@ -241,7 +242,8 @@ begin
 		port map(
 			RESET_n => resetInt,
 			CLK_n   => clk,
-			CLKEN   => kcSysClk or sysctl_d(1) or SW(0),
+			--CLKEN   => kcSysClk or sysctl_d(1) or SW(0),
+			CLKEN   => kcSysClk or turbo,
 			WAIT_n  => wait_n,
 			INT_n   => int_n,
 			NMI_n   => nmi_n,

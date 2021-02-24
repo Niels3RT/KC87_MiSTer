@@ -196,12 +196,15 @@ assign BUTTONS = 0;
 wire [1:0] ar = status[9:8];
 assign VIDEO_ARX = (!ar) ? 12'd4 : (ar - 1'd1);
 assign VIDEO_ARY = (!ar) ? 12'd3 : 12'd0;
+wire turbo = status[3];
 
 `include "build_id.v" 
 localparam CONF_STR = {
 	"KC87;;",
 	"-;",
 	"O12,Aspect ratio,Original,Full Screen,[ARC1],[ARC2];",
+	"-;",
+	"O3,CPU Turbo,OFF,ON;",
 	"-;",
 	"F,TAP,Load Tape;",
 	"-;",
@@ -297,6 +300,8 @@ kc87 kc87
 	.LED_DISK(LED_DISK),
 	
 	.USER_OUT(USER_OUT),
+	
+	.turbo(turbo),
 	
 	.hps_status(status),
 	.ioctl_download(ioctl_download),

@@ -19,6 +19,10 @@ Type BASIC at the OS prompt to start the basic interpreter from ROM.
 
 The character generator currently produces VGA type sync pulses, not TV PAL. Output on HDMI at slightly over 50Hz is OK, analog video is untested (i have no io board) and likely will not work.
 
+## CPU Turbo
+
+CPU Turbo is selectable in OSD menu, default is off as games are nearly unplayable at that speed.
+
 ## TAP files
 
 A little warning: i have not yet found any games/software suitable for non-german speakers. OS errors are reported in english though.
