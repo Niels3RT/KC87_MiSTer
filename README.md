@@ -13,7 +13,7 @@ In a nutshell, it is an east german (DDR/GDR) computer based on soviet russian U
 
 ## The MiSTer Core
 
-The core is in a pretty basic state right now, there is no support for tape input yet, but *.TAP files work. A lot of things seem to be working a little/way too fast, i will have a look at slowing down memory access soon. And don't expect any audio output for now.
+The core is not perfect, there is no support for tape input yet, but *.TAP files work. Audio output works too, see OSD to enable tape noise.
 
 Type BASIC at the OS prompt to start the basic interpreter from ROM.
 

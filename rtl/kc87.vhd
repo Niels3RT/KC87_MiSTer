@@ -48,10 +48,18 @@ entity kc87 is
 		HSync				: out std_logic;
 		VBlank			: out std_logic;
 		VSync				: out std_logic;
-		
 		VGA_R				: out std_logic_vector(7 downto 0);
 		VGA_G				: out std_logic_vector(7 downto 0);
 		VGA_B				: out std_logic_vector(7 downto 0);
+		
+		clk_audio		: in  std_logic;		-- 24.576 MHz
+		AUDIO_L			: out std_logic_vector(15 downto 0);
+		AUDIO_R			: out std_logic_vector(15 downto 0);
+		AUDIO_S			: out std_logic;
+		AUDIO_MIX		: out std_logic_vector(1 downto 0);
+		
+		audioEn_n		: in  std_logic;
+		tapeEn			: in  std_logic;
 		
 		LED_USER			: out std_logic;
 		LED_POWER		: out std_logic_vector(1 downto 0);
@@ -178,6 +186,9 @@ architecture struct of kc87 is
 	signal UART_TXD		: std_logic;
 	signal UART_RXD		: std_logic;
 	
+	-- TEMP audio_l debug
+	signal AUDIO_L_DBG	: std_logic_vector(15 downto 0);
+	
 	-- tape recorder output
 	--signal tape_out		: std_logic;
 
@@ -188,6 +199,8 @@ begin
 	-- LEDs
 	LED_POWER <= '1' & '1';
 	--LED_DISK  <= '1' & '0';
+	USER_OUT(1 downto 0) <= (others => '0');
+	USER_OUT(6 downto 4) <= (others => '0');
 	
 	-- some static signals
 	wait_n	<= '1';
@@ -300,6 +313,27 @@ begin
 	-- ctc-aus und eingaenge verdrahten
 	ctcClkTrg(2 downto 0) <= (others => '0');
 	ctcClkTrg(3) <= ctcTcTo(2);
+	
+	--USER_OUT(2) <= ctcTcTo(0);
+	USER_OUT(2) <= ctcTcTo(0);
+	USER_OUT(3) <= AUDIO_L_DBG(15);
+	AUDIO_L <= AUDIO_L_DBG;
+	
+	-- audio output
+	audio_out : entity work.audio
+		port map (
+			clk			=> clk_audio,
+			reset_n		=> resetInt,
+			--AUDIO_L		=> AUDIO_L,
+			AUDIO_L		=> AUDIO_L_DBG,
+			AUDIO_R		=> AUDIO_R,
+			AUDIO_S		=> AUDIO_S,
+			AUDIO_MIX	=> AUDIO_MIX,
+			audioEn_n	=> audioEn_n,
+			tapeEn		=> tapeEn,
+			tape_out		=> pio1_aStb,
+			ctcTcTo		=> ctcTcTo(0)
+		);
 	
 	-- System PIO
 	pio1 : entity work.pio
@@ -502,7 +536,7 @@ begin
 			
 			tape_out		=> pio1_aStb,
 			
-			USER_OUT		=> USER_OUT,
+			--USER_OUT		=> USER_OUT,
 			
 			hps_status  => hps_status,
 			ioctl_download => ioctl_download,

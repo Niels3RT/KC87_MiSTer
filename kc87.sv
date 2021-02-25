@@ -182,10 +182,10 @@ assign VGA_SL = 0;
 assign VGA_F1 = 0;
 assign VGA_SCALER = 0;
 
-assign AUDIO_S = 0;
-assign AUDIO_L = 0;
-assign AUDIO_R = 0;
-assign AUDIO_MIX = 0;
+//assign AUDIO_S = 0;
+//assign AUDIO_L = 0;
+//assign AUDIO_R = 0;
+//assign AUDIO_MIX = 0;
 
 //assign LED_DISK = 0;
 //assign LED_POWER = 0;
@@ -197,6 +197,8 @@ wire [1:0] ar = status[9:8];
 assign VIDEO_ARX = (!ar) ? 12'd4 : (ar - 1'd1);
 assign VIDEO_ARY = (!ar) ? 12'd3 : 12'd0;
 wire turbo = status[3];
+wire audioEn_n = status[4];
+wire tapeEn = status[5];
 
 `include "build_id.v" 
 localparam CONF_STR = {
@@ -207,6 +209,9 @@ localparam CONF_STR = {
 	"O3,CPU Turbo,OFF,ON;",
 	"-;",
 	"F,TAP,Load Tape;",
+	"-;",
+	"O4,Audio,ON,OFF;",
+	"O5,Tape Noise,OFF,ON;",
 	"-;",
 	"T0,Reset;",
 	"R0,Reset and close OSD;",
@@ -295,6 +300,15 @@ kc87 kc87
 	.VGA_G(VGA_G),
 	.VGA_B(VGA_B),
 	
+	.clk_audio(CLK_AUDIO),
+	.AUDIO_L(AUDIO_L),
+	.AUDIO_R(AUDIO_R),
+	.AUDIO_S(AUDIO_S),
+	.AUDIO_MIX(AUDIO_MIX),
+	
+	.audioEn_n(audioEn_n),
+	.tapeEn(tapeEn),
+		
 	.LED_USER(LED_USER),
 	.LED_POWER(LED_POWER),
 	.LED_DISK(LED_DISK),

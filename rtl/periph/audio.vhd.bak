@@ -30,7 +30,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all; 
 
-entity tape is 
+entity audio is 
 	generic  (
 		BIT_DIVIDE_MAX	: integer := 5208 -- 417us/4 at 50MHz
 	);
@@ -50,9 +50,9 @@ entity tape is
 		ioctl_data		: in  std_logic_vector(7 downto 0);
 		ioctl_wait		: out  std_logic
 	);
-end tape;
+end audio;
 
-	architecture rtl of tape is
+	architecture rtl of audio is
 		signal divide_bit		: unsigned(16 downto 0) := (others => '0');
 		
 		signal tx_cnt_block	: unsigned(11 downto 0) := (others => '1');
