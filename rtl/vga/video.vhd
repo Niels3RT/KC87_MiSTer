@@ -153,7 +153,8 @@ begin
 		  
 		  -- blank
         hblank <= not(H_BLANK_ACTIVE);
-        if (countH >= H_DISP) then 
+        --if (countH >= H_DISP) then
+		  if (countH >= H_DISP + SYNC_DELAY-1) or (countH < SYNC_DELAY-1) then
             hblank <= H_BLANK_ACTIVE;
         end if;
        
@@ -168,7 +169,6 @@ begin
     -- color+output
     process (display, output, color, countV, scanLine)
     begin
-        --if (display and not(countV mod (CHAR_Y_SIZE/8) = 0 and scanLine='0')) then		-- x mod 1 (char size 8) doesn't seem to work
 		  if (display and not(countV = 0 and scanLine='0')) then
             if (output(7)='1') then
                 red   <= (others => color(3));

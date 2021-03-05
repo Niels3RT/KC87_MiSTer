@@ -37,7 +37,9 @@ entity kc87 is
 		vgaclock			: in  std_logic;		-- 7,3728Mhz
 		reset				: in  std_logic;
 		
-		ps2_key			: in std_logic_vector(10 downto 0);
+		ps2_key			: in  std_logic_vector(10 downto 0);
+		joystick_0		: in  std_logic_vector(31 downto 0);
+		joystick_1		: in  std_logic_vector(31 downto 0);
 		
 		scandouble		: in  std_logic;
 		turbo				: in  std_logic;
@@ -508,7 +510,9 @@ begin
 			matrixXout	=> kmatrixXout,
 			matrixXin 	=> kmatrixXin,
 			matrixYout	=> kmatrixYout,
-			matrixYin	=> kmatrixYin
+			matrixYin	=> kmatrixYin,
+			joystick_0	=> joystick_0,
+			joystick_1	=> joystick_1
 		);
 	-- detect pressed key from MiSTer
 	process (ps2_key, clk)

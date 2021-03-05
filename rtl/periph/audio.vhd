@@ -84,10 +84,10 @@ begin
 		end if;
 		tape_out_old <= tape_out_sig;
 		-- audio out
-		if ctcTcTo_old /= ctcTcTo and ctcTcTo = '1' and audioEn_n = '0' then
+		if ctcTcTo_old /= ctc_to0 and ctc_to0 = '1' and audioEn_n = '0' then
 			sig_noise <= '1';
 		end if;
-		ctcTcTo_old <= ctcTcTo;
+		ctcTcTo_old <= ctc_to0;
 		
 --		-- play audio
 		divide_frq <= divide_frq + 1;

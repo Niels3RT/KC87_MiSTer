@@ -193,7 +193,7 @@ assign BUTTONS = 0;
 
 //////////////////////////////////////////////////////////////////
 
-wire [1:0] ar = status[9:8];
+wire [1:0] ar = status[2:1];
 assign VIDEO_ARX = (!ar) ? 12'd4 : (ar - 1'd1);
 assign VIDEO_ARY = (!ar) ? 12'd3 : 12'd0;
 wire turbo = status[3];
@@ -222,6 +222,8 @@ wire forced_scandoubler;
 wire  [1:0] buttons;
 wire [31:0] status;
 wire [10:0] ps2_key;
+wire [31:0] joystick_0;
+wire [31:0] joystick_1;
 
 wire        ioctl_wr;
 wire [24:0] ioctl_addr;
@@ -245,6 +247,8 @@ hps_io #(.STRLEN($size(CONF_STR)>>3)) hps_io
 	.status_menumask({status[5]}),
 	
 	.ps2_key(ps2_key),
+	.joystick_0(joystick_0),
+	.joystick_1(joystick_1),
 	
 	.ioctl_download(ioctl_download),
 	.ioctl_index(ioctl_index),
@@ -286,6 +290,8 @@ kc87 kc87
 	.reset(reset),
 	
 	.ps2_key(ps2_key),
+	.joystick_0(joystick_0),
+	.joystick_1(joystick_1),
 
 	.scandouble(forced_scandoubler),
 

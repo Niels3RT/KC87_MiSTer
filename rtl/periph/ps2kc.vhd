@@ -29,22 +29,26 @@ use IEEE.numeric_std.all;
 
 entity ps2kc is
     port (
-		clk			: in std_logic;
-		res_n			: in std_logic;
-		scancode		: in std_logic_vector(7 downto 0);
-		scanstate	: in std_logic;
-		rcvd			: in std_logic;
-		matrixXin	: in  std_logic_vector(7 downto 0);
-		matrixXout	: out std_logic_vector(7 downto 0);
-		matrixYin	: in  std_logic_vector(7 downto 0);
-		matrixYout	: out std_logic_vector(7 downto 0)
+		clk				: in std_logic;
+		res_n				: in std_logic;
+		scancode			: in std_logic_vector(7 downto 0);
+		scanstate		: in std_logic;
+		rcvd				: in std_logic;
+		matrixXin		: in  std_logic_vector(7 downto 0);
+		matrixXout		: out std_logic_vector(7 downto 0);
+		matrixYin		: in  std_logic_vector(7 downto 0);
+		matrixYout		: out std_logic_vector(7 downto 0);
+		joystick_0		: in  std_logic_vector(31 downto 0);
+		joystick_1		: in  std_logic_vector(31 downto 0)
 	);
 end;
 
 architecture rtl of ps2kc is
     type keyMatrixType is array(8 downto 1) of std_logic_vector(8 downto 1);
 	 -- init mit 1 funktioniert in ise nicht, Quartus kanns :P
-    signal keyMatrix : keyMatrixType := (others => (others => '1'));
+    signal keyMatrix			: keyMatrixType := (others => (others => '1'));
+	 signal joystick_0_old	: std_logic_vector(31 downto 0) := (others => '0');
+	 signal joystick_1_old	: std_logic_vector(31 downto 0) := (others => '0');
     
 begin
  
@@ -138,6 +142,24 @@ begin
 					when x"5d" => keyMatrix(8)(8) <= scanstate; --  => (# ')
 					when others =>null;
 				end case;
+			else
+				-- joystick
+				if joystick_0_old /= joystick_0 then
+					keyMatrix(7)(1) <= not joystick_0(1); -- joystick 1 left
+					keyMatrix(7)(2) <= not joystick_0(0); -- joystick 1 right
+					keyMatrix(7)(3) <= not joystick_0(2); -- joystick 1 down
+					keyMatrix(7)(4) <= not joystick_0(3); -- joystick 1 up
+					keyMatrix(7)(5) <= not joystick_0(4); -- joystick 1 fire
+				end if;
+				joystick_0_old <= joystick_0;
+				if joystick_1_old /= joystick_1 then
+					keyMatrix(8)(1) <= not joystick_1(1); -- joystick 2 left
+					keyMatrix(8)(2) <= not joystick_1(0); -- joystick 2 right
+					keyMatrix(8)(3) <= not joystick_1(2); -- joystick 2 down
+					keyMatrix(8)(4) <= not joystick_1(3); -- joystick 2 up
+					keyMatrix(8)(5) <= not joystick_1(4); -- joystick 2 fire
+				end if;
+				joystick_1_old <= joystick_1;
 			end if;
 		end if;
 		-- matrix zeilen und spalten fuer pio kombinieren
